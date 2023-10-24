@@ -3,7 +3,7 @@ import "./App.css";
 import Poll from "./components/Poll";
 import CreatePoll from "./components/CreatePoll";
 import { initializeApp } from "firebase/app";
-import { update, getDatabase, ref, onValue, push, off } from "firebase/database"
+import { getDatabase, ref, onValue, push, off, set } from "firebase/database"
 import { getAuth } from "firebase/auth"
 import { useAuthState, useSignInWithGoogle } from "react-firebase-hooks/auth"
 
@@ -59,9 +59,7 @@ function App() {
   const onVote = (value, pollData) => {
     console.log(pollData)
     // Change this function to update the database!
-    update(ref(database, pollData.votePath), {
-      [user.uid]: value
-    });
+    set(ref(database, `${pollData.votePath}/${user.uid}`), value);
   };
 
   return (
