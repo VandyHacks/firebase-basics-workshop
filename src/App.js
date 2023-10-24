@@ -35,10 +35,10 @@ function App() {
     const listener = snap => {
       const data = snap.val();
       let polls = [];
-      for (let user in data) {
-        const userPolls = data[user];
+      for (let userId in data) {
+        const userPolls = data[userId];
         for (let pollId in userPolls) {
-          userPolls[pollId]["votePath"] = `/polls/${user}/${pollId}/votes`;
+          userPolls[pollId]["votePath"] = `/polls/${userId}/${pollId}/votes`;
           polls.push(userPolls[pollId]);
         }
       }
