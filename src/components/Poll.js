@@ -5,7 +5,7 @@ const Poll = ({ onClick, pollData, uid }) => {
   
   useEffect(() => {
     setVoted(uid in pollData.votes);
-  }, [uid]);
+  }, [uid, pollData.votes]);
 
   const getResults = () => {
     if (!pollData.votes) return;

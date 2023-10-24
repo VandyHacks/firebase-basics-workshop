@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { exampleData } from "./assets/data";
 import Poll from "./components/Poll";
 import CreatePoll from "./components/CreatePoll";
 import { initializeApp } from "firebase/app";
