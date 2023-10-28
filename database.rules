@@ -1,0 +1,18 @@
+{
+  "rules": {
+    "polls": {
+      ".read": true,
+      "$uid": {
+        "$pollid": {
+          ".write": "auth.uid === $uid",
+           "votes": {
+             "$otheruid": {
+                ".write": "auth.uid === $otheruid",
+                ".validate": "auth.uid === $otheruid"
+             }
+           }
+        }
+      }
+    }
+  }
+}
